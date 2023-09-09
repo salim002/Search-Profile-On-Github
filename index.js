@@ -22,7 +22,7 @@ const generateProfile = (profile)=>{
                         <img src="${profile.avatar_url}" alt="avatar">
                     </div>
                     <div class="self">
-                        <h3>${profile.name}</h3>
+                        <h3>${profile.name?profile.name:"Name Not Found"}</h3>
                         <h3>${profile.login}</h3>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ const generateProfile = (profile)=>{
             </div>
             <div class="about-section">
                 <h2>About</h2>
-                <p>${profile.bio}</p>
+                <p>${profile.bio?profile.bio:"Bio Not Found"}</p>
             </div>
             <div class="status">
                 <div class="status-item">
@@ -64,7 +64,7 @@ const fetchProfile = async ()=>{
         const res = await fetch(`${url}/${username}`); 
         const data = await res.json();
         // console.log("data", data);
-        if(data.name){
+        if(data.login){
             loadingEl.innerText = "";
             profileContainerEl.innerHTML = generateProfile(data);
         } else{
