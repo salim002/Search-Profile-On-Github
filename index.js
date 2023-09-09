@@ -1,7 +1,7 @@
 const serachInputEl = document.getElementById("searchInput");
-const searchButtonEl = document.getElementById("search-btn");
 const profileContainerEl = document.getElementById("profileContainer");
 const loadingEl = document.getElementById("loading");
+const searchForm = document.getElementById("searchForm");
 
 const initialPlaceholder = serachInputEl.placeholder;
 serachInputEl.addEventListener("focus", ()=>{
@@ -57,6 +57,7 @@ const url = "https://api.github.com/users";
 
 const fetchProfile = async ()=>{
     const username = serachInputEl.value;
+    console.log(username);
     loadingEl.innerText = "loading....";
     loadingEl.style.color = "black";
     try{
@@ -77,4 +78,9 @@ const fetchProfile = async ()=>{
     }
 }
 
-searchButtonEl.addEventListener("click", fetchProfile);
+function handleSubmit(e) {
+    e.preventDefault();
+    fetchProfile();
+}
+
+searchForm.addEventListener("submit", handleSubmit);

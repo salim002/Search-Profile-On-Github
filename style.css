@@ -13,6 +13,10 @@
     gap: 1.5rem;
 }
 
+.container h1 {
+    font-size: 50px;
+  }
+
 .search{
     display: flex;
     width: 50%;
@@ -37,18 +41,16 @@
 }
 
 .primary-btn{
-    background-color: rgba(128, 0, 128, 0.7);
+    background-color: rgb(37, 176, 176);
     color: white;
     padding: 0.5rem 1rem;
     border: none;
+    margin-left: 5px;
+    border-radius: 4px;
 }
 
 .primary-btn:hover{
-    background-color: rgb(99, 3, 99)
-}
-
-.primary-btn:active{
-    background: rgb(188, 51, 188)
+    background-color: rgb(5, 75, 75);
 }
 
 .avatar{
