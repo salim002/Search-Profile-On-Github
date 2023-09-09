@@ -3,6 +3,16 @@ const searchButtonEl = document.getElementById("search-btn");
 const profileContainerEl = document.getElementById("profileContainer");
 const loadingEl = document.getElementById("loading");
 
+const initialPlaceholder = serachInputEl.placeholder;
+serachInputEl.addEventListener("focus", ()=>{
+    serachInputEl.placeholder = "";
+})
+serachInputEl.addEventListener("blur", ()=>{
+    if(serachInputEl.value===""){
+        serachInputEl.placeholder=initialPlaceholder;
+    }
+})
+
 const generateProfile = (profile)=>{
     return (`
         <div class="profile-box">
@@ -58,7 +68,7 @@ const fetchProfile = async ()=>{
             profileContainerEl.innerHTML = generateProfile(data);
         } else{
             profileContainerEl.innerText = "";
-            loadingEl.innerHTML = data.message;
+            loadingEl.innerHTML = "Profile Not Found!";
             loadingEl.style.color="red";
         }
     } catch(error){

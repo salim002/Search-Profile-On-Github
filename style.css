@@ -19,6 +19,10 @@
     max-width: 50rem;
 }
 
+#searchInput {
+    text-align: center;
+}
+
 .search input::placeholder{
     text-align: center;
 }
